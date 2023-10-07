@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Cursos</title>
+</head>
+<body>
+    <h1>Buscar Cursos</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if cursos %}
+    <h2>Resultados de la búsqueda:</h2>
+    <ul>
+        {% for curso in cursos %}
+        <li>{{ curso.nombre }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
